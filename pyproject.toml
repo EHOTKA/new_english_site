@@ -1,0 +1,29 @@
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+extend-exclude = """
+(^/\\.venv/)|(^/tests/data/)
+"""
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv", "tests/data"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "C4", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# The fake cursor in the unit tests deliberately mirrors psycopg2's loose typing.
+"tests/*" = ["RUF012", "B008"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+files = ["app"]
+
+[[tool.mypy.overrides]]
+# Neither driver ships py.typed (psycopg2-binary) nor stubs (pysrt).
+module = ["psycopg2.*", "pysrt.*"]
+ignore_missing_imports = true

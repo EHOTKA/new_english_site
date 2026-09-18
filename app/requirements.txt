@@ -1,0 +1,13 @@
+# Step 2 — Subtitle Parser & Cleaner: runtime dependencies
+#
+#   pip install -r app/requirements.txt
+#
+psycopg2-binary>=2.9.9   # PostgreSQL driver (execute_batch bulk insert)
+pysrt>=1.1.2             # robust SRT timecue parsing
+chardet>=5.2.0           # OPTIONAL: encoding auto-detection (module degrades gracefully without it)
+
+# --- development / test ---
+pytest>=8.0.0
+ruff>=0.6.0
+black>=24.10.0
+mypy>=1.11.0

@@ -1,0 +1,19 @@
+# Virtual environment (project-local, recreated from app/requirements.txt)
+.venv/
+
+# Python bytecode and tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# SRT fixtures are generated, not authored: rebuild with `python tests/data/make_fixtures.py`
+tests/data/*.srt
+
+# Local runtime state of the PostgreSQL container and the bulk lemma corpus
+docker/docker_volumes/
+docker/data/
+
+# Scratch files from agent runs (probes, pip freeze dumps)
+.qwen/tmp/
